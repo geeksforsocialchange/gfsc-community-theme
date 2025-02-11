@@ -1,38 +1,118 @@
-# Headline
+# GFSC Ghost Theme Development Environment
 
-Headline is a [Ghost](https://github.com/TryGhost/Ghost) theme built from the ground up for local news. While it can be used for any purpose, the theme takes a thoughtful approach to displaying large amounts of content across various areas of coverage. Headline adapts to your content by showcasing your most written about topics or by giving you the control to decide which topics are front and center.
+This repository contains a local development environment for creating and testing our custom Ghost theme. It includes instructions for setting up Ghost, importing content from the live site, and developing the theme.
 
-**Demo: https://headline.ghost.io**
+## Prerequisites
 
-# Instructions
+Before you begin, ensure you have the following installed:
 
-1. [Download this theme](https://github.com/TryGhost/Headline/archive/main.zip)
-2. Log into Ghost, and go to the `Design` settings area to upload the zip file
+- [Node.js](https://nodejs.org/) v20.11.1 (we recommend using `nvm` for version control)
+- [Git](https://git-scm.com/)
+- [Ghost CLI](https://ghost.org/docs/ghost-cli/) (install globally via `npm install -g ghost-cli@latest`)
 
-# Development
-
-Edition styles are compiled using Gulp/PostCSS to polyfill future CSS spec. You'll need [Node](https://nodejs.org/), [Yarn](https://yarnpkg.com/) and [Gulp](https://gulpjs.com) installed globally. After that, from the theme's root directory:
-
-```bash
-# Install
-yarn
-
-# Run build & watch for changes
-yarn dev
-```
-
-Now you can edit `/assets/css/` files, which will be compiled to `/assets/built/` automatically.
-
-The `zip` Gulp task packages the theme files into `dist/headline.zip`, which you can then upload to your site.
+`nvm` installation for convenience:
 
 ```bash
-yarn zip
+nvm install 20.11.1
+npm install -g ghost-cli@latest
 ```
 
-# Contribution
+## Setup Instructions
 
-This repo is synced automatically with [TryGhost/Themes](https://github.com/TryGhost/Themes) monorepo. If you're looking to contribute or raise an issue, head over to the main repository [TryGhost/Themes](https://github.com/TryGhost/Themes) where our official themes are developed.
+### 1. Clone the Repository
 
-## Copyright & License
+Clone this repository to your local machine:
 
-Copyright (c) 2013-2025 Ghost Foundation - Released under the [MIT license](LICENSE).
+```bash
+git clone https://github.com/geeksforsocialchange/gfsc-community-theme
+```
+
+### 2. Install Ghost Locally
+
+Run the following command to set up a local Ghost instance in a different folder to your theme:
+
+```bash
+mkdir gfsc-ghost
+cd gfsc-ghost
+ghost install local
+```
+
+### 3. Start Ghost
+
+Not needed right after installation. Start the Ghost server in the `gfsc-ghost` directory:
+
+```bash
+ghost start
+```
+
+Access your local Ghost instance at `http://localhost:2368`.
+
+### 4. Import Content from live site
+
+If you have an exported JSON file from another Ghost site:
+
+1. Go to the Ghost admin panel on the remote server and navigate to "import/export" (https://gfsc.community/ghost/#/settings/migration).
+2. Import the file using the CLI, e.g. `ghost import ~/Downloads/geeks-for-social-change.ghost.2025-02-11-13-26-10.json`
+3. Ghost will prompt you to enter a new password for the admin account
+4. Log in to `http://localhost:2368/ghost` with `kim@gfsc.studio` and the new password
+
+## Directory Structure
+
+Here’s the structure of the project so far:
+
+```
+gfsc-ghost/                           # Ghost installation folder
+├── content/
+│   ├── data/
+│   ├── images/
+│   ├── themes/                       # Ghost themes folder (symlink to your theme folder)
+├── .ghost.json                       # Ghost CLI configuration
+├── README.md                         # This file
+└── ...                               # Other Ghost-related files
+
+gfsc-community-theme/                 # Your custom theme folder (located elsewhere)
+├── assets/                           # Static assets (CSS, JS, images)
+├── partials/                         # Handlebars partials
+├── index.hbs                         # Main template file
+├── post.hbs                          # Single post template
+├── package.json                      # Theme metadata
+└── ...                               # Other theme files
+```
+
+## Linking the Theme Folder
+
+Since your theme folder (`gfsc-community-theme`) is located outside the Ghost installation folder, you need to create a symbolic link to it inside the `content/themes` directory.
+
+```bash
+cd content/themes # Assuming you are already in the gfsc-ghost directory
+ln -s ../../../gfsc-community-theme gfsc-community-theme # Create a symlink to our theme directory
+ghost restart # New themes don't show up until ghost is restarted
+```
+
+## Developing
+
+### 1. Activate the Theme
+
+1. Go to the Ghost admin panel (`http://localhost:2368/ghost`).
+2. Navigate to `http://localhost:2368/ghost/#/settings/design/change-theme`
+3. Pick the new theme
+
+### 2. Customize the Theme
+
+- Use Handlebars for templating. Refer to the [Ghost Handlebars Documentation](https://ghost.org/docs/themes/handlebars-themes/).
+- Add CSS and JavaScript files in the `assets` folder.
+- Test the theme using the imported content or create new posts/pages in the Ghost admin panel.
+
+## Deploying the Theme
+
+The theme is deployed to GitHub everytime `main` branch is updated.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Resources
+
+- [Ghost Documentation](https://ghost.org/docs/)
+- [Ghost Theme Handbook](https://ghost.org/docs/themes/)
+- [Handlebars Documentation](https://handlebarsjs.com/)
