@@ -39,7 +39,7 @@ ghost install local
 
 ### 3. Start Ghost
 
-Not needed right after installation. Start the Ghost server in the `gfsc-ghost` directory:
+_Not needed right after installation_. Start the Ghost server in the `gfsc-ghost` directory:
 
 ```bash
 ghost start
@@ -49,12 +49,10 @@ Access your local Ghost instance at `http://localhost:2368`.
 
 ### 4. Import Content from live site
 
-If you have an exported JSON file from another Ghost site:
-
 1. Go to the Ghost admin panel on the remote server and navigate to "import/export" (https://gfsc.community/ghost/#/settings/migration).
-2. Import the file using the CLI, e.g. `ghost import ~/Downloads/geeks-for-social-change.ghost.2025-02-11-13-26-10.json`
+2. Import the downloaded file using the CLI, e.g. `ghost import ~/Downloads/geeks-for-social-change.ghost.2025-02-11-13-26-10.json`
 3. Ghost will prompt you to enter a new password for the admin account
-4. Log in to `http://localhost:2368/ghost` with `kim@gfsc.studio` and the new password
+4. Log in to `http://localhost:2368/ghost` with `kim@gfsc.studio` and your new password (I'm assuming user 1 is the root user)
 
 ## Directory Structure
 
@@ -81,7 +79,7 @@ gfsc-community-theme/                 # Your custom theme folder (located elsewh
 
 ## Linking the Theme Folder
 
-Since your theme folder (`gfsc-community-theme`) is located outside the Ghost installation folder, you need to create a symbolic link to it inside the `content/themes` directory.
+Since your theme folder (`gfsc-community-theme`) is located outside the Ghost installation folder, we need to create a symbolic link to it inside the `content/themes` directory.
 
 ```bash
 cd content/themes # Assuming you are already in the gfsc-ghost directory
@@ -105,7 +103,7 @@ ghost restart # New themes don't show up until ghost is restarted
 
 ## Deploying the Theme
 
-The theme is deployed to GitHub everytime `main` branch is updated.
+The theme is deployed to the production server every time `main` branch is updated -- be careful!
 
 ## License
 
