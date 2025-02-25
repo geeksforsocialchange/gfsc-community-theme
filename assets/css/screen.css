@@ -8,7 +8,6 @@
     --color-gfsc-orange: #EA5B0D;
     --color-darker-gray: #555443;
     --color-menu-border: #D6B6A1;
-    --color-footer-background: #555443;
     --color-primary-text: var(--color-darker-gray);
     --h1-size: 4.4rem;
     --footer-spacing: 120px;
@@ -657,7 +656,7 @@ body:not(.home-template) .gh-topic-grid .gh-card {
     padding-top: 80px;
     padding-bottom: 120px;
     margin-top: 120px;
-    background-color: var(--color-footer-background);
+    background-color: var(--color-darker-gray);
 }
 
 .page-template .gh-foot {
