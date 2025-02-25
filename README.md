@@ -47,6 +47,17 @@ ghost start
 
 Access your local Ghost instance at `http://localhost:2368`.
 
+If you're wanting to develop CSS you need to run Gulp in the project directory. I struggled to get this working due to the ghost cli and the package gulp being different versions, but this worked for me.
+
+```bash
+# Theoretically how it works
+nvm use
+npm install
+gulp
+# How I got it working
+npx gulp
+```
+
 ### 4. Import Content from live site
 
 1. Go to the Ghost admin panel on the remote server and navigate to "import/export" (https://gfsc.community/ghost/#/settings/migration).
