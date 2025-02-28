@@ -19,14 +19,7 @@
                 <div class="gh-head-brand-wrapper">
                     {{#is "home"}}<h1 class="gh-head-logo">{{/is}}
                     <a {{^is "home"}}class="gh-head-logo"{{/is}} href="{{@site.url}}">
-                        {{#if @site.logo}}
-                            <img src="{{@site.logo}}" alt="{{@site.title}}">
-                            {{#if @custom.white_publication_logo_for_transparent_header}}
-                                <img src="{{@custom.white_publication_logo_for_transparent_header}}" alt="{{@site.title}}">
-                            {{/if}}
-                        {{else}}
-                            {{@site.title}}
-                        {{/if}}
+                        <img src="{{asset "images/logo.svg"}}" alt="{{@site.title}}">
                     </a>
                     {{#is "home"}}</h1>{{/is}}
                 </div>

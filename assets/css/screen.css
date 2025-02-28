@@ -2,7 +2,7 @@
 @import "fonts.css";
 
 :root {
-    --font-sans: "basic-sans",Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif; /* stylelint-disable-line value-keyword-case */
+    --font-sans: "basic-sans", Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif; /* stylelint-disable-line value-keyword-case */
     --font-serif: --var(font-sans); /* stylelint-disable-line value-keyword-case */
     --head-nav-gap: 32px;
     --color-gfsc-orange: #EA5B0D;
@@ -11,7 +11,7 @@
     --color-primary-text: var(--color-darker-gray);
     --h1-size: 4.4rem;
     --footer-spacing: 120px;
-    font-size: 66%;
+    font-size: 69%;
 }
 
 
@@ -33,9 +33,37 @@ figcaption {
     font-weight: 500;
 }
 
-body:not(.is-head-stacked) .gh-head {
-    height: 88px;
+/* Increase header logo size */
+
+.gh-head img {
+    max-height: 45px
 }
+
+
+@media (min-width: 992px) {
+    .is-head-stacked .gh-head-brand {
+        padding: 5.75rem 0;
+    }
+
+    .gh-head img {
+        height: 6.5rem;
+        max-height: none;
+    }
+}
+
+.is-head-stacked {
+    .gh-head-menu::before {
+        top: 126px; /* set by eye */
+    }
+    .gh-head-menu::after {
+        top: 182px; /* set by eye */
+    }
+}
+
+.gh-main {
+    padding-top: 6rem;
+}
+
 
 body:not(.is-head-stacked) .gh-head-inner {
     border-bottom: 1px solid var(--color-light-gray);
