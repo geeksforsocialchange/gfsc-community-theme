@@ -24,7 +24,7 @@
             </footer>
         </section>
 
-        {{#if @custom.enter_tag_slugs_for_primary_sections}}
+        {{!-- {{#if @custom.enter_tag_slugs_for_primary_sections}}
             {{#get "tags" filter="slug:[{{@custom.enter_tag_slugs_for_primary_sections}}]"}}
                 {{#foreach tags}}
                     {{> "topic-grid"}}
@@ -62,6 +62,6 @@
                     {{/if}}
                 {{/get}}
             {{/match}}
-        {{/if}}
+        {{/if}} --}}
     </div>
 </main>
