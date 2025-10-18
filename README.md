@@ -6,14 +6,14 @@ This repository contains a local development environment for creating and testin
 
 Before you begin, ensure you have the following installed:
 
-- [Node.js](https://nodejs.org/) v20.11.1 (we recommend using `nvm` for version control)
+- [Node.js](https://nodejs.org/) v22.20.0 (we recommend using `nvm` for version control)
 - [Git](https://git-scm.com/)
 - [Ghost CLI](https://ghost.org/docs/ghost-cli/) (install globally via `npm install -g ghost-cli@latest`)
 
 `nvm` installation for convenience:
 
 ```bash
-nvm install 20.11.1
+nvm install 22.20.0
 npm install -g ghost-cli@latest
 ```
 
