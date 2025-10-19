@@ -762,6 +762,7 @@ body:not(.home-template) .gh-topic-grid .gh-card {
     color: var(--color-secondary-text);
     letter-spacing: -0.006em;
     text-align: center;
+    white-space: normal;
 }
 
 .gh-subscribe ~ .gh-copyright {
