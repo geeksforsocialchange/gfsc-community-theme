@@ -33,6 +33,11 @@ figcaption {
     font-weight: 500;
 }
 
+/* Fix focus outline (required for accessibility) */
+.gh-icon-btn:focus-visible {
+    outline: auto;
+}
+
 /* Increase header logo size */
 
 .gh-head img {
