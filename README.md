@@ -6,14 +6,14 @@ This repository contains a local development environment for creating and testin
 
 Before you begin, ensure you have the following installed:
 
-- [Node.js](https://nodejs.org/) v20.11.1 (we recommend using `nvm` for version control)
+- [Node.js](https://nodejs.org/) v22.20.0 (we recommend using `nvm` for version control)
 - [Git](https://git-scm.com/)
 - [Ghost CLI](https://ghost.org/docs/ghost-cli/) (install globally via `npm install -g ghost-cli@latest`)
 
 `nvm` installation for convenience:
 
 ```bash
-nvm install 20.11.1
+nvm install 22.20.0
 npm install -g ghost-cli@latest
 ```
 
@@ -47,6 +47,7 @@ ghost start
 
 Access your local Ghost instance at `http://localhost:2368`.
 
+### 4. Run Gulp
 If you're wanting to develop CSS you need to run Gulp in the project directory. I struggled to get this working due to the ghost cli and the package gulp being different versions, but this worked for me.
 
 ```bash
@@ -58,7 +59,13 @@ gulp
 npx gulp
 ```
 
-### 4. Import Content from live site
+You can also run gulp using the npm script `dev`:
+```bash
+npm install
+npm run dev
+```
+
+### 5. Import Content from live site
 
 1. Go to the Ghost admin panel on the remote server and navigate to "import/export" (https://gfsc.community/ghost/#/settings/migration).
 2. Import the downloaded file using the CLI, e.g. `ghost import ~/Downloads/geeks-for-social-change.ghost.2025-02-11-13-26-10.json`

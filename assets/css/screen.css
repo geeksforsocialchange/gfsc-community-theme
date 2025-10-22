@@ -33,6 +33,11 @@ figcaption {
     font-weight: 500;
 }
 
+/* Fix focus outline (required for accessibility) */
+.gh-icon-btn:focus-visible {
+    outline: auto;
+}
+
 /* Increase header logo size */
 
 .gh-head img {
@@ -477,6 +482,31 @@ body:not(.home-template) .gh-topic-grid .gh-card {
     letter-spacing: -0.01em;
 }
 
+.gh-author-location {
+    margin-top: 4px;
+    color: var(--color-darker-gray);
+}
+
+.gh-author-social {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.gh-author-social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+}
+
+.gh-author-social svg {
+    width: 18px;
+    height: 18px;
+}
+
 .gh-article-meta {
     margin-top: 3px;
     font-size: 1.3rem;
@@ -732,6 +762,7 @@ body:not(.home-template) .gh-topic-grid .gh-card {
     color: var(--color-secondary-text);
     letter-spacing: -0.006em;
     text-align: center;
+    white-space: normal;
 }
 
 .gh-subscribe ~ .gh-copyright {
