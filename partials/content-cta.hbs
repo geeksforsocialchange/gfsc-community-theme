@@ -1,14 +1,20 @@
-<div class="gh-post-upgrade-cta">
-    <div class="gh-post-upgrade-cta-content" style="background-color: #EA5B0D">
-        <h2 class="gh-post-upgrade-cta-title">Register a free account to continue reading</h2>
-        {{!-- <p class="gh-post-upgrade-cta-description">
-            Sign up now to get access to the full article and more.
-        </p> --}}
-        <a class="gh-btn gh-primary-btn" style="color:#EA5B0D" href="#/portal/signup" data-portal="signup">
-            <span>Sign up for free</span>
-        </a>
-        <p class="gh-post-upgrade-cta-footer">
-            Already have an account? <a href="#/portal/signin" data-portal="signin">Sign in</a>
-        </p>
+{{{html}}}
+<aside class="gh-post-upgrade-cta">
+    <div class="gh-post-upgrade-cta-content" style="background-color: {{@site.accent_color}}">
+        {{#has visibility="paid"}}
+            <h2>Join any paid membership tier to continue reading</h2>
+        {{/has}}
+        {{#has visibility="members"}}
+            <h2>Register a free account to continue reading</h2>
+        {{/has}}
+        {{#has visibility="tiers"}}
+            <h2>Join {{tiers}} to continue reading</h2>
+        {{/has}}
+        {{#if @member}}
+            <a class="gh-btn" data-portal="account/plans" href="#/portal/account/plans" style="color:{{@site.accent_color}}">Upgrade your account</a>
+        {{else}}
+            <a class="gh-btn" data-portal="signup" href="#/portal/signup" style="color:{{@site.accent_color}}">Sign up for free</a>
+            <p><small>Already have an account? <a data-portal="signin" href="#/portal/signin">Sign in</a></small></p>
+        {{/if}}
     </div>
-</div>
+</aside>
