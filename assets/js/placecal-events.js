@@ -197,6 +197,93 @@
         return recurrence ? 'Repeats ' + recurrence : '';
     }
 
+    function buildEventSchema(events) {
+        return events.map(function (event) {
+            var url = event.publisherUrl || ('https://manchester.placecal.org/events/' + event.id);
+            var hasAddress = event.address && (event.address.streetAddress || event.address.postalCode);
+            var hasOnline = !!event.onlineEventUrl;
+
+            var schema = {
+                '@type': 'Event',
+                'name': event.name,
+                'startDate': event.startDate,
+                'eventStatus': 'https://schema.org/EventScheduled',
+                'organizer': {
+                    '@type': 'Organization',
+                    'name': 'Geeks for Social Change',
+                    'url': 'https://gfsc.community/'
+                },
+                'url': url
+            };
+
+            if (event.endDate) {
+                schema.endDate = event.endDate;
+            }
+
+            if (event.summary) {
+                schema.description = event.summary;
+            }
+
+            if (hasAddress && hasOnline) {
+                schema.eventAttendanceMode = 'https://schema.org/MixedEventAttendanceMode';
+                schema.location = [
+                    {
+                        '@type': 'Place',
+                        'address': {
+                            '@type': 'PostalAddress',
+                            'streetAddress': event.address.streetAddress || '',
+                            'addressLocality': event.address.addressLocality || '',
+                            'postalCode': event.address.postalCode || ''
+                        }
+                    },
+                    {
+                        '@type': 'VirtualLocation',
+                        'url': event.onlineEventUrl
+                    }
+                ];
+            } else if (hasOnline) {
+                schema.eventAttendanceMode = 'https://schema.org/OnlineEventAttendanceMode';
+                schema.location = {
+                    '@type': 'VirtualLocation',
+                    'url': event.onlineEventUrl
+                };
+            } else if (hasAddress) {
+                schema.eventAttendanceMode = 'https://schema.org/OfflineEventAttendanceMode';
+                schema.location = {
+                    '@type': 'Place',
+                    'address': {
+                        '@type': 'PostalAddress',
+                        'streetAddress': event.address.streetAddress || '',
+                        'addressLocality': event.address.addressLocality || '',
+                        'postalCode': event.address.postalCode || ''
+                    }
+                };
+            }
+
+            return schema;
+        });
+    }
+
+    function injectEventSchema(events) {
+        var existing = container.querySelector('script[type="application/ld+json"]');
+        if (existing) {
+            existing.remove();
+        }
+
+        var schemas = buildEventSchema(events);
+        if (!schemas.length) {
+            return;
+        }
+
+        var script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.textContent = JSON.stringify({
+            '@context': 'https://schema.org',
+            '@graph': schemas
+        });
+        container.appendChild(script);
+    }
+
     function renderEvents(events) {
         var collapsed = collapseRecurring(events);
         var html = '<ul class="events__list">';
@@ -209,7 +296,7 @@
             var datetime = new Date(event.startDate).toISOString();
 
             html += '<li class="event"><article class="event__inner">';
-            html += '<h3 class="event__title"><a href="' + escapeHTML(url) + '" target="_blank" rel="noopener noreferrer">' + escapeHTML(event.name) + '</a></h3>';
+            html += '<h2 class="event__title"><a href="' + escapeHTML(url) + '" target="_blank" rel="noopener noreferrer">' + escapeHTML(event.name) + '</a></h2>';
             var timeStr = escapeHTML(date) + ', ' + escapeHTML(time);
             if (event.recurrence) {
                 timeStr += ' | ' + recurrenceLabel(event.recurrence);
@@ -238,6 +325,7 @@
         html += '</ul>';
         html += '<p class="events__credit">Events feed powered by <a href="https://manchester.placecal.org/partners/geeks-for-social-change" target="_blank" rel="noopener noreferrer">PlaceCal</a></p>';
         listEl.innerHTML = html;
+        injectEventSchema(collapsed);
         showState('events');
     }
 
