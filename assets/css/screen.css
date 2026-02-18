@@ -5,8 +5,9 @@
     --font-sans: "basic-sans", Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif; /* stylelint-disable-line value-keyword-case */
     --font-serif: var(--font-sans); /* stylelint-disable-line value-keyword-case */
     --head-nav-gap: 32px;
-    --color-gfsc-orange: #EA5B0D;
+    --color-gfsc-orange: #C74A00;
     --color-darker-gray: #555443;
+    --color-secondary-text: #767676;
     --color-menu-border: #D6B6A1;
     --color-primary-text: var(--color-darker-gray);
     --h1-size: 4.4rem;
@@ -31,6 +32,26 @@ figcaption {
 
 .gh-btn {
     font-weight: 500;
+}
+
+/* Skip-to-content link */
+.gh-skip-link {
+    position: absolute;
+    top: -100%;
+    left: 16px;
+    z-index: 9999;
+    padding: 8px 16px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--color-white);
+    background: var(--color-darker-gray);
+    border-radius: 0 0 4px 4px;
+}
+
+.gh-skip-link:focus {
+    top: 0;
+    outline: 2px solid var(--color-gfsc-orange);
+    outline-offset: 2px;
 }
 
 /* Fix focus outline (required for accessibility) */
@@ -759,7 +780,7 @@ body:not(.home-template) .gh-topic-grid .gh-card {
 
 .gh-copyright {
     margin-top: 32px;
-    color: var(--color-secondary-text);
+    color: rgba(255, 255, 255, 0.65);
     letter-spacing: -0.006em;
     text-align: center;
     white-space: normal;

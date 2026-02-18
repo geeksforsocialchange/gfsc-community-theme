@@ -5,9 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{meta_title}}</title>
+    <link rel="stylesheet" href="https://p.typekit.net/p.css?s=1&k=tjw8nrh&ht=tk&f=35473.35474.35477.35478&a=3814629&app=typekit&e=css">
     <link rel="stylesheet" href="{{asset "built/screen.css"}}">
 
     {{ghost_head}}
+
+    {{#is "page"}}{{#has slug="secret-subscriber-info-zone"}}
+    <meta name="robots" content="noindex, nofollow">
+    {{/has}}{{/is}}
 
     {{#is "home"}}
     <script type="application/ld+json">
@@ -39,6 +44,7 @@
 </head>
 
 <body class="{{body_class}}{{{block "body_class"}}} is-head-{{#match @custom.navigation_layout "Logo on the left"}}left-logo{{else match @custom.navigation_layout "Logo in the middle"}}middle-logo{{else}}stacked{{/match}}{{#match @custom.title_font "=" "Elegant serif"}} has-serif-title{{/match}}{{#match @custom.body_font "=" "Elegant serif"}} has-serif-body{{/match}}{{#is "tag"}}{{#if tag.feature_image}} is-head-transparent{{/if}}{{/is}}{{#match @custom.header_style "Accent color"}} is-head-brand{{/match}}{{#match @custom.header_style "Dark"}} is-head-dark{{/match}}">
+<a class="gh-skip-link" href="#gh-main">Skip to content</a>
 <div class="gh-site">
 
     <header id="gh-head" class="gh-head gh-outer">
@@ -88,6 +94,7 @@
         </div>
     </header>
 
+    <div id="gh-main"></div>
     {{{body}}}
 
     <footer class="gh-foot gh-outer">
