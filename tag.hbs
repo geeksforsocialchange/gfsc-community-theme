@@ -40,6 +40,19 @@
             {{/unless}}
         {{/tag}}
 
+        {{#tag}}
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "Home", "item": "{{@site.url}}"},
+                {"@type": "ListItem", "position": 2, "name": "{{name}}"}
+            ]
+        }
+        </script>
+        {{/tag}}
+
         <div class="gh-topic gh-topic-grid">
             <div class="gh-topic-content gh-feed">
                 {{#foreach posts limit="all"}}

@@ -5,7 +5,7 @@
             {{#foreach authors}}
                 <a class="gh-author-image" href="{{url}}">
                     {{#if profile_image}}
-                        <img src="{{profile_image}}" alt="{{name}}">
+                        <img src="{{img_url profile_image size="s"}}" alt="{{name}}" width="60" height="60" loading="lazy">
                     {{else}}
                         <div class="gh-author-icon">{{> icons/avatar}}</div>
                     {{/if}}
