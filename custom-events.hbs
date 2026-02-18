@@ -1,0 +1,84 @@
+{{!< default}}
+
+{{#post}}
+
+<main class="gh-main">
+    <article class="gh-article {{post_class}}">
+
+        {{#match @page.show_title_and_feature_image}}
+            <header class="gh-article-header gh-canvas">
+                <h1 class="gh-article-title">{{title}}</h1>
+
+                {{#if custom_excerpt}}
+                    <p class="gh-article-excerpt">{{custom_excerpt}}</p>
+                {{/if}}
+
+                {{> "feature-image"}}
+            </header>
+        {{/match}}
+
+        <section class="gh-content gh-canvas">
+            {{content}}
+        </section>
+
+        <section class="gh-events gh-canvas"
+            id="placecal-events"
+            data-placecal-partner-id="{{@custom.placecal_partner_id}}"
+            data-placecal-future-days="{{@custom.placecal_future_days}}"
+            data-placecal-endpoint="https://placecal.org/api/v1/graphql"
+            aria-live="polite">
+
+            {{!-- Loading skeleton --}}
+            <div class="gh-events-loading" aria-label="Loading events">
+                <div class="gh-event-skeleton">
+                    <div class="gh-event-skeleton-date"></div>
+                    <div class="gh-event-skeleton-card">
+                        <div class="gh-event-skeleton-time"></div>
+                        <div class="gh-event-skeleton-details">
+                            <div class="gh-event-skeleton-title"></div>
+                            <div class="gh-event-skeleton-summary"></div>
+                        </div>
+                    </div>
+                    <div class="gh-event-skeleton-card">
+                        <div class="gh-event-skeleton-time"></div>
+                        <div class="gh-event-skeleton-details">
+                            <div class="gh-event-skeleton-title"></div>
+                            <div class="gh-event-skeleton-summary"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="gh-event-skeleton">
+                    <div class="gh-event-skeleton-date"></div>
+                    <div class="gh-event-skeleton-card">
+                        <div class="gh-event-skeleton-time"></div>
+                        <div class="gh-event-skeleton-details">
+                            <div class="gh-event-skeleton-title"></div>
+                            <div class="gh-event-skeleton-summary"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{!-- Error state --}}
+            <div class="gh-events-error" hidden>
+                <p>Sorry, we couldn't load events right now.</p>
+                <p>Please try again later or visit <a href="https://manchester.placecal.org">PlaceCal</a> directly.</p>
+            </div>
+
+            {{!-- Empty state --}}
+            <div class="gh-events-empty" hidden>
+                <p>There are no upcoming events at the moment.</p>
+                <p>Check back soon or visit <a href="https://manchester.placecal.org">PlaceCal</a> for more.</p>
+            </div>
+
+            {{!-- Events render here --}}
+            <div class="gh-events-list"></div>
+
+        </section>
+
+    </article>
+</main>
+
+{{/post}}
+
+<script src="{{asset "built/placecal-events.min.js"}}"></script>

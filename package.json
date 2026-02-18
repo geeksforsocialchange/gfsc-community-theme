@@ -87,6 +87,17 @@
       "enter_tag_slugs_for_secondary_sections": {
         "type": "text",
         "group": "homepage"
+      },
+      "placecal_partner_id": {
+        "type": "text",
+        "default": "244",
+        "group": "events"
+      },
+      "placecal_future_days": {
+        "type": "select",
+        "options": ["30", "60", "90", "180"],
+        "default": "90",
+        "group": "events"
       }
     }
   },
