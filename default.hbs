@@ -8,6 +8,34 @@
     <link rel="stylesheet" href="{{asset "built/screen.css"}}">
 
     {{ghost_head}}
+
+    {{#is "home"}}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Geeks for Social Change",
+        "alternateName": "GFSC",
+        "url": "https://gfsc.community/",
+        "logo": "https://gfsc.community/content/images/2025/02/GFSC_Community_Logo_Orange_RGB.png",
+        "description": "{{@site.description}}",
+        "legalName": "GFSC Community Interest Company",
+        "taxID": "12135472",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Manchester",
+            "addressCountry": "GB"
+        },
+        "sameAs": [
+            "https://github.com/geeksforsocialchange",
+            "https://social.gfsc.studio/@gfsc",
+            "https://www.instagram.com/geeksforsocialchange/",
+            "https://bsky.app/profile/gfsc.community",
+            "https://www.youtube.com/@geeksforsocialchange"
+        ]
+    }
+    </script>
+    {{/is}}
 </head>
 
 <body class="{{body_class}}{{{block "body_class"}}} is-head-{{#match @custom.navigation_layout "Logo on the left"}}left-logo{{else match @custom.navigation_layout "Logo in the middle"}}middle-logo{{else}}stacked{{/match}}{{#match @custom.title_font "=" "Elegant serif"}} has-serif-title{{/match}}{{#match @custom.body_font "=" "Elegant serif"}} has-serif-body{{/match}}{{#is "tag"}}{{#if tag.feature_image}} is-head-transparent{{/if}}{{/is}}{{#match @custom.header_style "Accent color"}} is-head-brand{{/match}}{{#match @custom.header_style "Dark"}} is-head-dark{{/match}}">
