@@ -3,7 +3,7 @@
 
 :root {
     --font-sans: "basic-sans", Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif; /* stylelint-disable-line value-keyword-case */
-    --font-serif: --var(font-sans); /* stylelint-disable-line value-keyword-case */
+    --font-serif: var(--font-sans); /* stylelint-disable-line value-keyword-case */
     --head-nav-gap: 32px;
     --color-gfsc-orange: #EA5B0D;
     --color-darker-gray: #555443;
