@@ -75,6 +75,16 @@ function js(done) {
     ], handleError(done));
 }
 
+function eventsJs(done) {
+    pump([
+        src('assets/js/placecal-events.js', {sourcemaps: true}),
+        uglify(),
+        concat('placecal-events.min.js'),
+        dest('assets/built/', {sourcemaps: '.'}),
+        livereload()
+    ], handleError(done));
+}
+
 function zipper(done) {
     const filename = require('./package.json').name + '.zip';
 
@@ -92,9 +102,10 @@ function zipper(done) {
 
 const hbsWatcher = () => watch(['*.hbs', 'partials/**/*.hbs'], hbs);
 const cssWatcher = () => watch('assets/css/**/*.css', css);
-const jsWatcher = () => watch('assets/js/**/*.js', js);
-const watcher = parallel(hbsWatcher, cssWatcher, jsWatcher);
-const build = series(css, js);
+const jsWatcher = () => watch('assets/js/main.js', js);
+const eventsJsWatcher = () => watch('assets/js/placecal-events.js', eventsJs);
+const watcher = parallel(hbsWatcher, cssWatcher, jsWatcher, eventsJsWatcher);
+const build = series(css, js, eventsJs);
 
 exports.build = build;
 exports.zip = series(build, zipper);

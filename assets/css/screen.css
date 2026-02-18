@@ -923,6 +923,229 @@ body:not(.home-template) .gh-topic-grid .gh-card {
     }
 }
 
+/* PlaceCal Events */
+
+.gh-events {
+    margin-top: 0;
+}
+
+/* On the events page, collapse gap between content and events */
+.page-events .gh-content {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.page-events .gh-content > *:last-child {
+    margin-bottom: 0 !important;
+}
+
+.page-events .gh-events {
+    margin-top: 2rem !important;
+}
+
+.events__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.event {
+    padding: 2.4rem 0;
+    border-bottom: 1px solid var(--color-light-gray);
+}
+
+.event:last-child {
+    border-bottom: none;
+}
+
+.event__inner {
+    padding: 0;
+}
+
+.event__title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    font-family: var(--gh-font-heading, var(--font-sans));
+    letter-spacing: -.02em;
+    line-height: 1.15;
+    margin: 0 0 0.4rem;
+}
+
+.event__title a {
+    color: var(--color-darker-gray);
+    text-decoration: none;
+}
+
+.event__title a:hover {
+    color: var(--color-gfsc-orange);
+}
+
+.event__time {
+    margin: 0 0 0.8rem;
+    color: var(--color-gfsc-orange);
+    font-size: 1.8rem;
+    font-family: var(--gh-font-heading, var(--font-sans));
+    letter-spacing: -.02em;
+    line-height: 1.15;
+}
+
+.event__description {
+    margin: 0 0 0.8rem;
+}
+
+.event__description p {
+    margin: 0;
+}
+
+.event__description p + p {
+    margin-top: 1rem;
+}
+
+.event__join {
+    margin: 0 0 0.4rem;
+}
+
+.event__join a {
+    color: var(--color-gfsc-orange);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.event__join a:hover {
+    text-decoration: underline;
+}
+
+.event__location {
+    margin: 0 0 0.25rem;
+    color: var(--color-secondary-text);
+}
+
+.event__recurrence {
+    margin: 0;
+    font-style: italic;
+    color: var(--color-gfsc-orange);
+}
+
+.events__credit {
+    margin-top: 0;
+    padding-top: 1.2rem;
+    margin-bottom: 4rem;
+    border-top: 1px solid var(--color-light-gray);
+    color: var(--color-secondary-text);
+    font-size: 1.4rem;
+}
+
+.events__credit a {
+    color: var(--color-gfsc-orange);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.events__credit a:hover {
+    text-decoration: underline;
+}
+
+/* Events state visibility — [hidden] must win over display values */
+
+.gh-events-loading[hidden],
+.gh-events-error[hidden],
+.gh-events-empty[hidden],
+.gh-events-list[hidden] {
+    display: none;
+}
+
+/* Events loading skeleton */
+
+.gh-events-loading {
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+}
+
+.gh-event-skeleton-date {
+    width: 40%;
+    height: 2rem;
+    margin-bottom: 1.6rem;
+    background: var(--color-light-gray);
+    border-radius: 4px;
+    animation: skeleton-pulse 1.5s ease-in-out infinite;
+}
+
+.gh-event-skeleton-card {
+    display: flex;
+    gap: 2rem;
+    padding: 1.6rem 0;
+}
+
+.gh-event-skeleton-card + .gh-event-skeleton-card {
+    border-top: 1px solid var(--color-light-gray);
+}
+
+.gh-event-skeleton-time {
+    flex-shrink: 0;
+    width: 12rem;
+    height: 1.5rem;
+    background: var(--color-light-gray);
+    border-radius: 4px;
+    animation: skeleton-pulse 1.5s ease-in-out infinite;
+}
+
+.gh-event-skeleton-details {
+    flex: 1;
+}
+
+.gh-event-skeleton-title {
+    width: 70%;
+    height: 1.8rem;
+    background: var(--color-light-gray);
+    border-radius: 4px;
+    animation: skeleton-pulse 1.5s ease-in-out infinite;
+}
+
+.gh-event-skeleton-summary {
+    width: 50%;
+    height: 1.4rem;
+    margin-top: 0.8rem;
+    background: var(--color-light-gray);
+    border-radius: 4px;
+    animation: skeleton-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes skeleton-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+/* Events error and empty states */
+
+.gh-events-error,
+.gh-events-empty {
+    padding: 3.2rem 2.4rem;
+    margin-bottom: 6.4rem;
+    text-align: center;
+    background: var(--color-lighter-gray);
+    border-radius: 8px;
+}
+
+.gh-events-error p,
+.gh-events-empty p {
+    margin: 0;
+    font-size: 1.6rem;
+    color: var(--color-secondary-text);
+}
+
+.gh-events-error p + p,
+.gh-events-empty p + p {
+    margin-top: 0.8rem;
+}
+
+.gh-events-error a,
+.gh-events-empty a {
+    color: var(--color-gfsc-orange);
+    text-decoration: underline;
+}
+
+
 @media (max-width: 1199px) {
     .gh-article-sidebar {
         position: static;
