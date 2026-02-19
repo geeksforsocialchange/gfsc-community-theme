@@ -13,7 +13,7 @@
                     alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
                     width="720"
                     height="504"
-                    loading="lazy"
+                    {{#has index="0"}}fetchpriority="high"{{else}}loading="lazy"{{/has}}
                 >
             </figure>
         {{/if}}

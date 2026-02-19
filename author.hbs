@@ -6,7 +6,7 @@
             <section class="gh-pagehead">
                 <figure class="gh-author-image">
                     {{#if profile_image}}
-                        <img src="{{profile_image}}" alt="{{name}}">
+                        <img src="{{img_url profile_image size="s"}}" alt="{{name}}" width="120" height="120" loading="lazy">
                     {{else}}
                         <div class="gh-author-icon">{{> icons/avatar}}</div>
                     {{/if}}
@@ -54,6 +54,19 @@
                         </div>
                     </div>
             </section>
+        {{/author}}
+
+        {{#author}}
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "Home", "item": "{{@site.url}}"},
+                {"@type": "ListItem", "position": 2, "name": "{{name}}"}
+            ]
+        }
+        </script>
         {{/author}}
 
         <div class="gh-topic gh-topic-grid">

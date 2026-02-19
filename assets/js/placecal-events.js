@@ -208,10 +208,18 @@
                 'name': event.name,
                 'startDate': event.startDate,
                 'eventStatus': 'https://schema.org/EventScheduled',
+                'image': 'https://gfsc.community/content/images/2025/02/GFSC_Community_Logo_Orange_RGB.png',
                 'organizer': {
                     '@type': 'Organization',
                     'name': 'Geeks for Social Change',
                     'url': 'https://gfsc.community/'
+                },
+                'offers': {
+                    '@type': 'Offer',
+                    'price': '0',
+                    'priceCurrency': 'GBP',
+                    'availability': 'https://schema.org/InStock',
+                    'url': url
                 },
                 'url': url
             };

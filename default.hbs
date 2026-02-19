@@ -5,6 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{meta_title}}</title>
+    <link rel="preconnect" href="https://use.typekit.net" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preload" href="https://use.typekit.net/af/721f9c/00000000000000007735abf2/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://use.typekit.net/af/fa5d28/00000000000000007735abe8/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="https://p.typekit.net/p.css?s=1&k=tjw8nrh&ht=tk&f=35473.35474.35477.35478&a=3814629&app=typekit&e=css">
     <link rel="stylesheet" href="{{asset "built/screen.css"}}">
 
@@ -19,13 +23,26 @@
     {
         "@context": "https://schema.org",
         "@type": "Organization",
+        "@id": "https://gfsc.community/#organization",
         "name": "Geeks for Social Change",
         "alternateName": "GFSC",
         "url": "https://gfsc.community/",
-        "logo": "https://gfsc.community/content/images/2025/02/GFSC_Community_Logo_Orange_RGB.png",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://gfsc.community/content/images/2025/02/GFSC_Community_Logo_Orange_RGB.png",
+            "width": 512,
+            "height": 512
+        },
         "description": "{{@site.description}}",
         "legalName": "GFSC Community Interest Company",
         "taxID": "12135472",
+        "foundingDate": "2019",
+        "founder": {
+            "@type": "Person",
+            "name": "Dr Kim Foale",
+            "url": "https://gfsc.community/author/kim/"
+        },
+        "knowsAbout": ["community technology", "digital commons", "civic technology", "community events"],
         "address": {
             "@type": "PostalAddress",
             "addressLocality": "Manchester",
@@ -131,7 +148,7 @@
     {{> "pswp"}}
 {{/is}}
 
-<script src="{{asset "built/main.min.js"}}"></script>
+<script defer src="{{asset "built/main.min.js"}}"></script>
 
 {{ghost_foot}}
 
