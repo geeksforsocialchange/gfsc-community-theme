@@ -14,6 +14,20 @@
 
     {{ghost_head}}
 
+    <link rel="me" href="https://sunbeam.city/@gfsc">
+
+    {{#is "post"}}
+    {{#post}}
+        {{#foreach authors limit="1"}}
+            {{#if mastodon}}
+    <meta name="fediverse:creator" content="{{mastodon}}">
+            {{else}}
+    <meta name="fediverse:creator" content="@gfsc@sunbeam.city">
+            {{/if}}
+        {{/foreach}}
+    {{/post}}
+    {{/is}}
+
     {{#is "page"}}{{#has slug="secret-subscriber-info-zone"}}
     <meta name="robots" content="noindex, nofollow">
     {{/has}}{{/is}}
@@ -50,7 +64,6 @@
         },
         "sameAs": [
             "https://github.com/geeksforsocialchange",
-            "https://social.gfsc.studio/@gfsc",
             "https://sunbeam.city/@gfsc",
             "https://www.instagram.com/geeksforsocialchange/",
             "https://bsky.app/profile/gfsc.community",
