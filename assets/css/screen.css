@@ -731,6 +731,59 @@ body:not(.home-template) .gh-topic-grid .gh-card {
     margin-right: 6px;
 }
 
+/* Post subscribe CTA */
+
+.gh-post-subscribe {
+    margin-top: 48px;
+    padding: 40px;
+    text-align: center;
+    background-color: var(--color-lighter-gray, #f7f7f7);
+    border-radius: 8px;
+}
+
+.gh-post-subscribe-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--color-darker-gray);
+}
+
+.gh-post-subscribe-description {
+    margin-top: 8px;
+    font-size: 1.7rem;
+    color: var(--color-secondary-text, #6b6b6b);
+    line-height: 1.5;
+}
+
+.gh-post-subscribe-btn {
+    margin-top: 24px;
+    padding: 10px 28px;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--color-white);
+    background-color: var(--ghost-accent-color);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.gh-post-subscribe-btn:hover {
+    opacity: 0.9;
+}
+
+@media (max-width: 767px) {
+    .gh-post-subscribe {
+        padding: 32px 24px;
+    }
+
+    .gh-post-subscribe-title {
+        font-size: 2.2rem;
+    }
+
+    .gh-post-subscribe-description {
+        font-size: 1.5rem;
+    }
+}
+
 /* Site footer */
 
 .gh-foot {
