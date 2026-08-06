@@ -123,12 +123,15 @@ body:is(.is-head-transparent, .is-head-brand, .is-head-dark) .gh-head-logo img +
 /* Styles specific to grid style sections */
 
 .gh-topic-grid + .gh-topic-grid {
-    margin-top: 80px;
+    margin-top: 24px;
 }
 
 .gh-topic-grid .gh-topic-name {
-    margin-bottom: 40px;
-    font-size: 2.4rem;
+    border-top: 1px solid var(--color-light-gray);
+    padding-top: 24px;
+    margin-top: 24px;
+    margin-bottom: 22px;
+    font-size: 2.8rem;
     text-transform: uppercase;
     letter-spacing: -0.01em;
 }
@@ -145,10 +148,26 @@ body:not(.home-template) .gh-topic-grid .gh-topic-content {
 }
 
 .gh-topic-footer {
-    padding-top: 20px;
-    margin-top: 48px;
+    padding-top: 0;
+    margin-top: 12px;
     text-align: right;
-    border-top: 1px solid var(--color-light-gray);
+}
+
+.gh-topic-footer .gh-topic-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 14px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--color-darker-gray);
+    border: 1px solid var(--color-menu-border);
+    border-radius: 100px;
+}
+
+.gh-topic-footer .gh-topic-link svg {
+    width: 16px;
+    height: 16px;
 }
 
 .gh-topic-grid .gh-card.large,
@@ -166,9 +185,8 @@ body:not(.home-template) .gh-topic-grid .gh-card {
 }
 
 .gh-topic-grid .gh-card:not(:only-child).large {
-    padding-bottom: 48px;
-    margin-bottom: 16px;
-    border-bottom: 1px solid var(--color-light-gray);
+    padding-bottom: 24px;
+    margin-bottom: 0;
 }
 
 .gh-topic-grid .gh-card-link {
@@ -731,6 +749,70 @@ body:not(.home-template) .gh-topic-grid .gh-card {
 
 .gh-subscribe-btn svg {
     margin-right: 6px;
+}
+
+/* Homepage hero (blog intro) */
+
+.home-template .gh-main {
+    padding-top: 3.2rem;
+}
+
+.gh-hero {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 32px 80px;
+    align-items: start;
+    padding: 0 0 16px;
+}
+
+.gh-hero-title {
+    font-size: var(--h1-size);
+    line-height: 1.1;
+    letter-spacing: -0.022em;
+    color: var(--color-darker-gray);
+}
+
+.gh-hero-accent {
+    color: var(--color-gfsc-orange);
+}
+
+.gh-hero-aside {
+    align-self: end;
+    border-top: 1px solid var(--color-gfsc-orange);
+    padding-top: 14px;
+}
+
+.gh-hero-description {
+    margin-bottom: 14px;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    color: var(--color-secondary-text);
+}
+
+.gh-hero-button {
+    margin-bottom: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 14px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--color-darker-gray);
+    border: 1px solid var(--color-menu-border);
+    border-radius: 100px;
+}
+
+.gh-hero-button svg {
+    width: 16px;
+    height: 16px;
+}
+
+@media (max-width: 991px) {
+    .gh-hero {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 8px 0 32px;
+    }
 }
 
 /* Site footer */

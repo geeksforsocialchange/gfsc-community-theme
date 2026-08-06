@@ -2,6 +2,20 @@
 
 <main class="gh-main gh-outer">
     <div class="gh-inner">
+        {{#if @custom.hero_heading}}
+        <section class="gh-hero">
+            <div class="gh-hero-main">
+                <h1 class="gh-hero-title">{{@custom.hero_heading}}{{#if @custom.hero_heading_accent}} <span class="gh-hero-accent">{{@custom.hero_heading_accent}}</span>{{/if}}</h1>
+            </div>
+            <aside class="gh-hero-aside">
+                {{#if @custom.hero_description}}
+                <p class="gh-hero-description">{{@custom.hero_description}}</p>
+                {{/if}}
+                <a class="gh-hero-button" href="{{@site.url}}/about/">About GFSC {{> "icons/arrow"}}</a>
+            </aside>
+        </section>
+        {{/if}}
+
         <section class="gh-topic gh-topic-grid">
             <h2 class="gh-topic-name">
                 {{#match pagination.pages ">" 1}}
