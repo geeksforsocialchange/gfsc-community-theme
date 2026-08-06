@@ -95,9 +95,29 @@
       },
       "placecal_future_days": {
         "type": "select",
-        "options": ["30", "60", "90", "180"],
+        "options": [
+          "30",
+          "60",
+          "90",
+          "180"
+        ],
         "default": "90",
         "group": "events"
+      },
+      "hero_heading": {
+        "type": "text",
+        "group": "homepage",
+        "default": "Geeks for Social Change help people use technology to do community stuff."
+      },
+      "hero_heading_accent": {
+        "type": "text",
+        "group": "homepage",
+        "default": "Post billionaire technology, for everyone."
+      },
+      "hero_description": {
+        "type": "text",
+        "group": "homepage",
+        "default": "We're a non profit blogging about community technology: open source, coops, left tech, anarchist and (trans)feminist internet culture, and lunarpunk. We also run PlaceCal and The Trans Dimension, and provide consultancy."
       }
     }
   },
