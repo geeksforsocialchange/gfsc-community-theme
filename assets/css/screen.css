@@ -720,7 +720,9 @@ body:not(.home-template) .gh-topic-grid .gh-card {
     margin-top: 40px;
     color: var(--color-white);
     letter-spacing: -0.011em;
-    background-color: var(--ghost-accent-color);
+    /* Brand orange, not the admin accent: white text needs 4.5:1 (WCAG AA)
+       and passes on #C74A00 (4.76) but not on the lighter accent. */
+    background-color: var(--color-gfsc-orange);
 }
 
 .gh-subscribe-btn:hover {
@@ -780,7 +782,8 @@ body:not(.home-template) .gh-topic-grid .gh-card {
 
 .gh-copyright {
     margin-top: 32px;
-    color: rgba(255, 255, 255, 0.65);
+    /* 0.65 blends below 4.5:1 on the footer gray; 0.75 clears it */
+    color: rgba(255, 255, 255, 0.75);
     letter-spacing: -0.006em;
     text-align: center;
     white-space: normal;
