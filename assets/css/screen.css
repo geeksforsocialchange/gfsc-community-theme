@@ -811,7 +811,7 @@ body:not(.home-template) .gh-topic-grid .gh-card {
     .gh-hero {
         grid-template-columns: 1fr;
         gap: 24px;
-        padding: 8px 0 32px;
+        padding: 8px 0 8px;
     }
 }
 
