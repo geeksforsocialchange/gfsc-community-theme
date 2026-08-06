@@ -199,7 +199,7 @@
 
     function buildEventSchema(events) {
         return events.map(function (event) {
-            var url = event.publisherUrl || ('https://manchester.placecal.org/events/' + event.id);
+            var url = event.publisherUrl || ('https://placecal.org/events/' + event.id);
             var hasAddress = event.address && (event.address.streetAddress || event.address.postalCode);
             var hasOnline = !!event.onlineEventUrl;
 
@@ -300,7 +300,7 @@
             var date = formatShortDate(event.startDate);
             var time = formatTimeRange(event.startDate, event.endDate);
             var location = formatAddress(event.address);
-            var url = event.publisherUrl || ('https://manchester.placecal.org/events/' + event.id);
+            var url = event.publisherUrl || ('https://placecal.org/events/' + event.id);
             var datetime = new Date(event.startDate).toISOString();
 
             html += '<li class="event"><article class="event__inner">';
@@ -331,7 +331,7 @@
         });
 
         html += '</ul>';
-        html += '<p class="events__credit">Events feed powered by <a href="https://manchester.placecal.org/partners/geeks-for-social-change" target="_blank" rel="noopener noreferrer">PlaceCal</a></p>';
+        html += '<p class="events__credit">Events feed powered by <a href="https://placecal.org/partners/geeks-for-social-change" target="_blank" rel="noopener noreferrer">PlaceCal</a></p>';
         listEl.innerHTML = html;
         injectEventSchema(collapsed);
         showState('events');
