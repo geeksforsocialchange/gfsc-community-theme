@@ -811,7 +811,18 @@ body:not(.home-template) .gh-topic-grid .gh-card {
     .gh-hero {
         grid-template-columns: 1fr;
         gap: 24px;
-        padding: 8px 0 8px;
+        padding: 8px 0 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .home-template #gh-main {
+        padding-top: 2rem;
+    }
+
+    .gh-topic-grid .gh-topic-name {
+        padding-top: 16px;
+        margin-top: 12px;
     }
 }
 
