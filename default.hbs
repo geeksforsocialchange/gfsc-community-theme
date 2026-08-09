@@ -16,14 +16,17 @@
 
     <link rel="me" href="https://sunbeam.city/@gfsc">
 
+    {{!-- fediverse:creator must be a @user@domain handle. Ghost normalises the
+          profile Mastodon field to a URL, which breaks Mastodon's preview card
+          generation entirely, so handles are mapped per-author here. --}}
     {{#is "post"}}
     {{#post}}
         {{#foreach authors limit="1"}}
-            {{#if mastodon}}
-    <meta name="fediverse:creator" content="{{mastodon}}">
+            {{#match slug "=" "kim"}}
+    <meta name="fediverse:creator" content="@kim@post.lurk.org">
             {{else}}
     <meta name="fediverse:creator" content="@gfsc@sunbeam.city">
-            {{/if}}
+            {{/match}}
         {{/foreach}}
     {{/post}}
     {{/is}}
