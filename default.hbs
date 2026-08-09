@@ -16,16 +16,11 @@
 
     <link rel="me" href="https://sunbeam.city/@gfsc">
 
+    {{!-- Must be a literal @user@domain handle: Ghost's profile Mastodon field
+          normalises to a URL, which Mastodon rejects in a way that kills the
+          whole preview card, so don't emit {{mastodon}} here. --}}
     {{#is "post"}}
-    {{#post}}
-        {{#foreach authors limit="1"}}
-            {{#if mastodon}}
-    <meta name="fediverse:creator" content="{{mastodon}}">
-            {{else}}
     <meta name="fediverse:creator" content="@gfsc@sunbeam.city">
-            {{/if}}
-        {{/foreach}}
-    {{/post}}
     {{/is}}
 
     {{#is "page"}}{{#has slug="secret-subscriber-info-zone"}}
