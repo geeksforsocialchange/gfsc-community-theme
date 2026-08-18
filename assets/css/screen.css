@@ -789,8 +789,14 @@ body:not(.home-template) .gh-topic-grid .gh-card {
     color: var(--color-secondary-text);
 }
 
-.gh-hero-button {
+.gh-hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
     margin-bottom: 8px;
+}
+
+.gh-hero-button {
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -807,6 +813,18 @@ body:not(.home-template) .gh-topic-grid .gh-card {
     height: 16px;
 }
 
+.gh-hero-button-signup {
+    color: var(--color-white);
+    /* Same rationale as .gh-subscribe-btn: brand orange, not the admin
+       accent, so white text keeps 4.5:1 contrast. */
+    background-color: var(--color-gfsc-orange);
+    border-color: var(--color-gfsc-orange);
+}
+
+.gh-hero-button-signup:hover {
+    opacity: 0.9;
+}
+
 @media (max-width: 991px) {
     .gh-hero {
         grid-template-columns: 1fr;
@@ -818,6 +836,14 @@ body:not(.home-template) .gh-topic-grid .gh-card {
 @media (max-width: 767px) {
     .home-template #gh-main {
         padding-top: 2rem;
+    }
+
+    /* Bigger tap targets for the hero buttons on mobile */
+    .gh-hero-button {
+        flex-grow: 1;
+        justify-content: center;
+        padding: 7px 20px;
+        font-size: 1.5rem;
     }
 
     .gh-topic-grid .gh-topic-name {
