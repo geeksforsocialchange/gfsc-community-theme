@@ -11,7 +11,16 @@
                 {{#if @custom.hero_description}}
                 <p class="gh-hero-description">{{@custom.hero_description}}</p>
                 {{/if}}
-                <a class="gh-hero-button" href="{{@site.url}}/about/">About GFSC {{> "icons/arrow"}}</a>
+                <div class="gh-hero-buttons">
+                    {{#if @site.members_enabled}}
+                        {{#unless @member}}
+                            {{#unless @site.members_invite_only}}
+                                <a class="gh-hero-button gh-hero-button-signup" href="#/portal/signup" data-portal="signup">Subscribe {{> "icons/arrow"}}</a>
+                            {{/unless}}
+                        {{/unless}}
+                    {{/if}}
+                    <a class="gh-hero-button" href="{{@site.url}}/about/">About GFSC {{> "icons/arrow"}}</a>
+                </div>
             </aside>
         </section>
         {{/if}}
